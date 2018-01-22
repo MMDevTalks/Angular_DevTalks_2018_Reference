@@ -1,0 +1,23 @@
+<section class="movie-poster"  [class.movie-poster--active]="isSelected" (click)="clickMoviePoster($event, movie)">
+  <section class="movie-poster__rotator">
+    <div class="movie-poster--front" mmTint>
+      <img class="movie-poster__photo" [src]="'https://image.tmdb.org/t/p//w300/'+movie.poster_path" />
+    </div>
+    <div class="movie-poster--back" *ngIf="isSelected">
+      <mm-icon class="movie-poster__close-button" name="close" (click)="clickMoviePoster($event, null, true)"></mm-icon>
+      <div class="movie-poster__content column">
+        <div class="row row--no-margin movie-poster-overview">
+          {{movie.overview}}
+        </div>
+        <div class="movie-poster-stats row middle-xs center-xs">
+          <mm-icon name="vote" class="pl-5 pr-5"></mm-icon> {{movie.vote_count}}
+          <mm-icon name="popularity" class="pl-5 pr-5"></mm-icon> {{movie.popularity}}
+          <mm-button class="movie-poster__details-button pl-5" (click)="clickMovieDetails(movie)">
+            <mm-icon name="info"></mm-icon>
+            DETAILS
+          </mm-button>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>

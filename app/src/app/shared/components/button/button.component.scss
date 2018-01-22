@@ -1,0 +1,29 @@
+@import 'settings.colors';
+@import 'settings.fonts';
+.button{
+    background: none;
+    border: 1px solid $mainColor;
+    border-radius: 3px;
+    color: $mainColor;
+    font-size: $fontSizeSmall;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    cursor: pointer;
+    &:hover{
+        color: #fff;
+        background: $mainColor;
+        /deep/ svg{
+            fill: #fff;
+        }
+    }
+    /deep/ svg{
+        vertical-align: middle;
+        fill: $mainColor;
+        margin-right: 2px;
+        width: 15px;
+        height: 15px;
+    }
+}

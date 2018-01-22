@@ -1,0 +1,28 @@
+@import 'settings.colors';
+.header{
+    // background-color: $mainColor;
+    display: flex;
+    align-items: center;
+    height: 95px;
+    box-shadow: 0px 2px 5px -1px rgba(50, 50, 50, 0.35);
+    position: relative;
+    z-index: 1;
+    &__navigation{
+        &-item{
+                border-bottom: 0px  transparent;
+                margin-right: 35px;
+            /deep/ svg{
+                width: 30px;
+                height: 30px;
+                fill: $mainColor;
+            }
+            &:hover,
+            &--active{
+                transition: 0.25s border;
+                border-bottom: 1px solid $mainColor;
+                padding-bottom: 5px;
+            }
+        }
+    }
+}
+

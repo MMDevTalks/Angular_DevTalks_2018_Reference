@@ -1,0 +1,37 @@
+@import 'settings.colors';
+@import 'settings.fonts';
+.search{
+    position: relative;
+    &__icon{
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 15px;
+        border-right: 1px solid $mainColor;
+        padding-right: 15px;
+        box-sizing: content-box;
+        /deep/ svg{
+            width: 30px;
+            height: 30px;
+            fill: $mainColor;
+        }
+    }
+    &__input{
+        font-size: $fontSizeRegular;
+        color: $mainTextColor;
+        background: #fff;
+        padding-left: 75px;
+        display: flex;
+        align-items: center;
+        height: 55px;
+        box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.45);
+        border-radius: 3px;
+        &:focus{
+            transition: 0.25s box-shadow;
+            box-shadow: 0px 2px 9px 1px rgba(50, 50, 50, 0.40);
+         
+        }
+    }
+}
