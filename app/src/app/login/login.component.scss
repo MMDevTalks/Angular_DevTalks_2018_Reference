@@ -1,0 +1,24 @@
+@import 'settings.fonts';
+@import 'settings.colors';
+.app-container{
+    height: 100%;
+}
+main{
+    overflow: auto;
+    flex: 1;
+}
+
+mm-button{
+     /deep/ .button{
+        font-size: 16px;
+        width: 175px;
+        height: 60px;
+        background: #fff!important;
+        color: $mainColor!important;
+        position: relative;
+    }
+    mm-spinner{
+        top: 47.5%;
+        left: 35px;
+    }
+}

@@ -1,0 +1,10 @@
+<section class="container-fluid column app-container">
+  <mm-header></mm-header>
+  <main class="center-xs">
+    <section class="overlay" [class.overlay--shown]="selectedMovie" (click)="selectedMovie=null"></section>
+    <section class="row pt-50 col-xs-12 start-xs row--no-margin movie-cards-holder">
+      <mm-movie-poster class="col-xs-2 mb-20" *ngFor="let movie of (movies$|async)" [movie]="movie" [isSelected]="movie===selectedMovie" (selectMovie)="selectMovie($event)" (showMovieDetails)="showMovieDetails($event)">
+      </mm-movie-poster>
+    </section>
+  </main>
+</section>

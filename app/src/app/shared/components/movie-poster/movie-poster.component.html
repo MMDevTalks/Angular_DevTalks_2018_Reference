@@ -1,6 +1,6 @@
 <section class="movie-poster"  [class.movie-poster--active]="isSelected" (click)="clickMoviePoster($event, movie)">
   <section class="movie-poster__rotator">
-    <div class="movie-poster--front" mmTint>
+    <div class="movie-poster--front">
       <img class="movie-poster__photo" [src]="'https://image.tmdb.org/t/p//w300/'+movie.poster_path" />
     </div>
     <div class="movie-poster--back" *ngIf="isSelected">
@@ -12,7 +12,7 @@
         <div class="movie-poster-stats row middle-xs center-xs">
           <mm-icon name="vote" class="pl-5 pr-5"></mm-icon> {{movie.vote_count}}
           <mm-icon name="popularity" class="pl-5 pr-5"></mm-icon> {{movie.popularity}}
-          <mm-button class="movie-poster__details-button pl-5" (click)="clickMovieDetails(movie)">
+          <mm-button class="movie-poster__details-button pl-5">
             <mm-icon name="info"></mm-icon>
             DETAILS
           </mm-button>

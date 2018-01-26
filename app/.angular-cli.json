@@ -21,7 +21,9 @@
       "styles": [
         "assets/css/app.scss"
       ],
-      "scripts": [],
+      "scripts": [
+        
+      ],
       "stylePreprocessorOptions": {
         "includePaths": [
           "assets/css"

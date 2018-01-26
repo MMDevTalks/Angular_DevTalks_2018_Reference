@@ -4,15 +4,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from 'app/app-routing.module';
+import { ProxyRouteComponent } from './proxy-route/proxy-route.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProxyRouteComponent
   ],
   imports: [
     SharedModule,
     CoreModule,
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

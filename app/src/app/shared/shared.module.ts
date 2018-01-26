@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IconComponent } from './components/icon/icon.component';
 import { MoviePosterComponent } from './components/movie-poster/movie-poster.component';
-import { TintDirective } from './directives/tint.directives';
+import { SvgDefinitionsComponent } from './components/svg-definitions/svg-definitions.component';
+import { IconComponent } from './components/icon/icon.component';
 import { ButtonComponent } from './components/button/button.component';
-import { AutoFocusDirective } from './directives/auto-focus.directive';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [IconComponent, MoviePosterComponent, TintDirective, ButtonComponent, AutoFocusDirective],
-  exports: [IconComponent, MoviePosterComponent, TintDirective, ButtonComponent, AutoFocusDirective]
+  declarations: [MoviePosterComponent, SvgDefinitionsComponent, IconComponent, ButtonComponent],
+  exports: [MoviePosterComponent, SvgDefinitionsComponent, IconComponent, ButtonComponent]
 })
 export class SharedModule { }

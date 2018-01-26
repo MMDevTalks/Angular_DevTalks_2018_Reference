@@ -6,7 +6,8 @@
     "module": "es2015",
     "types": [],
     "paths": {
-      "@movies/shared": ["app/shared"]
+      "@movies/shared": ["./app/shared"],
+      "@movies/services": ["./app/core/services"]
     }
   },
   "exclude": [

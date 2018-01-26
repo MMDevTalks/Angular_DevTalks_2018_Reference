@@ -8,7 +8,6 @@ import { Component, HostBinding, OnInit, ChangeDetectionStrategy, Input, Output,
 })
 export class MoviePosterComponent implements OnInit {
   @Output() selectMovie: EventEmitter<any> = new EventEmitter();
-  @Output() showMovieDetails: EventEmitter<any> = new EventEmitter();
   @Input() movie: any;
   @HostBinding('class.movie-poster--active') @Input() isSelected = false;
 
@@ -17,9 +16,6 @@ export class MoviePosterComponent implements OnInit {
       event.stopPropagation();
     }
     this.selectMovie.emit(movie);
-  }
-  clickMovieDetails(movie) {
-    this.showMovieDetails.emit(movie);
   }
   constructor() { }
 
