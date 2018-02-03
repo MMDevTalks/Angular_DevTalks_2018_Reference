@@ -12,7 +12,7 @@
         <div class="movie-poster-stats row middle-xs center-xs">
           <mm-icon name="vote" class="pl-5 pr-5"></mm-icon> {{movie.vote_count}}
           <mm-icon name="popularity" class="pl-5 pr-5"></mm-icon> {{movie.popularity}}
-          <mm-button class="movie-poster__details-button pl-5">
+          <mm-button class="movie-poster__details-button pl-5" (click)="showMovieDetails(movie)">
             <mm-icon name="info"></mm-icon>
             DETAILS
           </mm-button>

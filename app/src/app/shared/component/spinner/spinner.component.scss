@@ -1,0 +1,77 @@
+@import 'settings.colors';
+
+.spinner{
+  width: 100px;
+  height: 100px;
+  margin-top: -50px;
+  margin-left: -50px;
+  display: inline-block;
+  -moz-animation: pulse-loader 0.7s linear infinite alternate;
+  -webkit-animation: pulse-loader 0.7s linear infinite alternate;
+  animation: pulse-loader 0.7s linear infinite alternate;
+  border: 2px solid $mainColor;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  overflow: hidden;
+  text-indent: 50px;
+  top: 50%;
+  position: absolute;
+  left: 50%;
+  z-index: 12;
+  &-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ffffff;
+    opacity: 0.9;
+    z-index: 11;
+  }
+}
+@-moz-keyframes pulse-loader {
+  0% {
+    -moz-box-shadow: $mainColor 0 0 0px 20px;
+    box-shadow: $mainColor 0 0 0px 20px;
+  }
+  40% {
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+  100% {
+    -moz-box-shadow: $mainColor 0 0 0px 25px inset;
+    box-shadow: $mainColor 0 0 0px 25px inset;
+  }
+}
+@-webkit-keyframes pulse-loader {
+  0% {
+    -webkit-box-shadow: $mainColor 0 0 0px 20px;
+    box-shadow: $mainColor 0 0 0px 20px;
+  }
+  40% {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  100% {
+    -webkit-box-shadow: $mainColor 0 0 0px 25px inset;
+    box-shadow: $mainColor 0 0 0px 25px inset;
+  }
+}
+@keyframes pulse-loader {
+  0% {
+    -moz-box-shadow: $mainColor 0 0 0px 20px;
+    -webkit-box-shadow: $mainColor 0 0 0px 20px;
+    box-shadow: $mainColor 0 0 0px 20px;
+  }
+  40% {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  100% {
+    -moz-box-shadow: $mainColor 0 0 0px 25px inset;
+    -webkit-box-shadow: $mainColor 0 0 0px 25px inset;
+    box-shadow: $mainColor 0 0 0px 25px inset;
+  }
+}

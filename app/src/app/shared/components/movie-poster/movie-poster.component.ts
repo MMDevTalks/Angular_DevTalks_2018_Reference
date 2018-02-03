@@ -8,6 +8,7 @@ import { Component, HostBinding, OnInit, ChangeDetectionStrategy, Input, Output,
 })
 export class MoviePosterComponent implements OnInit {
   @Output() selectMovie: EventEmitter<any> = new EventEmitter();
+  @Output() movieDetailsShown: EventEmitter<any> = new EventEmitter();
   @Input() movie: any;
   @HostBinding('class.movie-poster--active') @Input() isSelected = false;
 
@@ -17,6 +18,11 @@ export class MoviePosterComponent implements OnInit {
     }
     this.selectMovie.emit(movie);
   }
+
+  showMovieDetails(movie: any) {
+    this.movieDetailsShown.emit(movie);
+  }
+
   constructor() { }
 
   ngOnInit() {
