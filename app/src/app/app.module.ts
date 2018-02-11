@@ -3,6 +3,7 @@ import { CoreModule } from './core/core.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from 'app/app-routing.module';
 import { ProxyRouteComponent } from './proxy-route/proxy-route.component';
@@ -17,6 +18,7 @@ import { ProxyRouteComponent } from './proxy-route/proxy-route.component';
     CoreModule,
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

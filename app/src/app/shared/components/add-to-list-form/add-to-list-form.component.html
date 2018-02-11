@@ -1,0 +1,18 @@
+<form [formGroup]="addListForm" (ngSubmit)="createList(f)" class="add-to-list-form pos-relative">
+  <header class="add-to-list-form__header row middle-xs between-xs">
+    CREATE YOUR LIST
+    <mm-icon name="close" (click)="closeForm()"></mm-icon>
+  </header>
+  <section class="add-to-list-form__content">
+    <label> Name </label>
+    <input [mmMaxCharacterValidator]="5" type="text" class="mb-10 mt-5" autocomplete="off" formControlName="name" />
+    <label> Description </label>
+    <mm-expandable-textarea [mmMaxCharacterValidator]="15" class="mb-10 mt-5" formControlName="description"></mm-expandable-textarea>
+    <label> Language </label>
+
+    <input [mmMaxCharacterValidator]="2" class="mb-10 mt-5" type="text" autocomplete="off" formControlName="language" />
+    <input type="submit">
+  </section>
+  <mm-spinner *ngIf="loading"></mm-spinner>
+</form>
+

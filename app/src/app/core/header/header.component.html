@@ -1,15 +1,33 @@
-<header class="header row">
-  <div class="col-xs-3 row row--no-margin center-xs middle-xs"> Logo </div>
-  <mm-search class="col-xs-6"></mm-search>
-  <nav class="col-xs-3 header__navigation row row--no-margin center-xs">
-    <a class="header__navigation-item header__navigation-item--active" href="#">
-      <mm-icon name="movie_reel"></mm-icon>
-    </a>
-    <a class="header__navigation-item" href="#">
-      <mm-icon name="vote"></mm-icon>
-    </a>
-    <a class="header__navigation-item" href="#">
-      <mm-icon name="popularity"></mm-icon>
-    </a>
-  </nav>
-</header>
+<header class="header row" [class.header--is-collecting]="isCollecting">
+    <ng-container *ngIf="!isCollecting">
+      <div class="col-xs-3 row row--no-margin center-xs middle-xs">
+        <mm-icon class="logo" name="clapper"></mm-icon>
+      </div>
+      <mm-search class="col-xs-6"></mm-search>
+      <nav class="col-xs-3 header__navigation row row--no-margin center-xs">
+        <a class="header__navigation-item" routerLink="/home/now-playing" routerLinkActive="header__navigation-item--active">
+          <mm-icon name="movie_reel"></mm-icon>
+        </a>
+        <a class="header__navigation-item" routerLink="/home/favorites" routerLinkActive="header__navigation-item--active">
+          <mm-icon name="vote"></mm-icon>
+        </a>
+        <a class="header__navigation-item" routerLink="/home/lists" routerLinkActive="header__navigation-item--active">
+          <mm-icon name="add_to_list"></mm-icon>
+        </a>
+      </nav>
+    </ng-container>
+    <ng-container *ngIf="isCollecting">
+      <div class="row col-xs-12 row--no-margin pl-20 pr-20 between-xs middle-xs">
+        <div class="col-xs row">
+          <mm-movie-poster @popInAnimation class="mr-20" *ngFor="let movie of collectables" [movie]="movie" >
+          </mm-movie-poster>
+        </div>
+  
+        <span class="header__collectables-counter nf-xs"> {{collectables.length}} </span>
+        <mm-button class="mm-button--inverted mm-button--big" *ngIf="collectables.length" (click)="completeSelection()">
+          <mm-icon name="info"></mm-icon>
+          CREATE LIST
+        </mm-button>
+      </div>
+    </ng-container>
+  </header>

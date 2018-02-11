@@ -1,0 +1,29 @@
+@import 'settings.fonts';
+@import 'settings.colors';
+input,textarea, .textarea-like{
+    border-radius: 3px;
+    border: 1px solid #d9d9d9;
+    padding: 10px;
+    font-size: $fontSizeRegular;
+    outline: none;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.19);
+    background-color: #fff;
+    height: 40px;
+    width: 100%;
+    &.ng-invalid:not(.ng-pristine){
+        color: red;
+        box-shadow: 0 1px 5px rgba(255, 0, 0, 0.59);
+    }
+}
+.textarea-like,
+textarea{
+    height: auto;
+    min-height: 175px;
+    resize: none;
+}
+input[type=submit]{
+    background-color: $mainColor;
+    color: #fff;
+    font-size: 17px;
+    line-height: 17px;
+}

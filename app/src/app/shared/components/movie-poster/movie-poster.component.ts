@@ -1,4 +1,4 @@
-import { Component, HostBinding, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { Component, HostBinding, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter, Attribute } from '@angular/core';
 
 @Component({
   selector: 'mm-movie-poster',
