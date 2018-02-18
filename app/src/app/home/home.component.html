@@ -3,10 +3,11 @@
   <main class="center-xs" >
     <section class="overlay" [class.overlay--shown]="selectedMovie" (click)="selectedMovie=null"></section>
     <section class="row pt-50 col-xs-12 start-xs row--no-margin movie-cards-holder">
-      <mm-movie-poster @popInAnimation class="col-xs-2 mb-20" *ngFor="let movie of movies$|async" [movie]="movie" [isSelected]="movie===selectedMovie" (selectMovie)="selectMovie($event)" (movieDetailsShown)="showMovieDetails($event)">
+      <mm-movie-poster @popInAnimation class="col-xs-2 mb-20" *ngFor="let movie of (homeState$|async)?.movies" [movie]="movie" [isSelected]="movie===(homeState$|async)?.selectedMovie" (selectMovie)="selectMovie($event)" (movieDetailsShown)="showMovieDetails($event)">
       </mm-movie-poster>
     </section>
     <mm-fab (click)="toggleCollecting()" iconName="add_to_list"></mm-fab>
     <mm-add-to-list-form class="col-xs-12" *ngIf="isFormShown" [movies]="collectedMovies" (formSubmitted)="createList($event)" (formClosed)="isFormShown = false;"></mm-add-to-list-form>
   </main>
+  <mm-spinner *ngIf="loading"></mm-spinner>
 </section>
