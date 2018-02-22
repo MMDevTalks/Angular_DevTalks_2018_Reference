@@ -6,12 +6,18 @@ import { HomeComponent } from './home.component';
 import { HeaderComponent } from 'app/core/header/header.component';
 import { SearchComponent } from 'app/core/search/search.component';
 import { SharedModule } from 'app/shared';
+import { StoreModule } from '@ngrx/store';
+import { home } from './home.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { HomeEffects } from './home.effects';
 
 @NgModule({
   imports: [
     CommonModule,
     HomeRoutingModule,
-    SharedModule
+    SharedModule,
+    StoreModule.forFeature('home', home),
+    EffectsModule.forFeature([HomeEffects])
   ],
   declarations: [HomeComponent, HeaderComponent, SearchComponent]
 })
