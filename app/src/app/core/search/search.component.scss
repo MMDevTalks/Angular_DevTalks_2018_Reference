@@ -34,4 +34,28 @@
          
         }
     }
+    &__results{
+        position: absolute;
+        top: 115%;
+        left: 0%;
+        right: 0;
+    }
+
+    &__loader{
+        position: absolute;
+        transform: scale(0.4);
+        top: 50%;
+        left: 30px;
+    }
+
+    &__no-results-item{
+        height: 55px;
+        display: flex;
+        padding-left: 25px;
+        align-items: center;
+        background-color: #fff;
+    }
+    &__hidden{
+        display: none;
+    }
 }

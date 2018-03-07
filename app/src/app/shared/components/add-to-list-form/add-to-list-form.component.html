@@ -1,18 +1,21 @@
-<form [formGroup]="addListForm" (ngSubmit)="createList(f)" class="add-to-list-form pos-relative">
+<form [formGroup]="addListForm" (ngSubmit)="submitForm()" class="add-to-list-form pos-relative">
   <header class="add-to-list-form__header row middle-xs between-xs">
     CREATE YOUR LIST
     <mm-icon name="close" (click)="closeForm()"></mm-icon>
   </header>
   <section class="add-to-list-form__content">
-    <label> Name </label>
-    <input [mmMaxCharacterValidator]="5" type="text" class="mb-10 mt-5" autocomplete="off" formControlName="name" />
-    <label> Description </label>
-    <mm-expandable-textarea [mmMaxCharacterValidator]="15" class="mb-10 mt-5" formControlName="description"></mm-expandable-textarea>
-    <label> Language </label>
-
-    <input [mmMaxCharacterValidator]="2" class="mb-10 mt-5" type="text" autocomplete="off" formControlName="language" />
-    <input type="submit">
+    <label>Name</label>
+    <input mmAutoFocus [mmValidateMaxCharacterCount]="15" type="text" class="mb-10 mt-5" formControlName="name" />
+    <label>Description</label>
+    <mm-limited-character-textarea [mmValidateMaxCharacterCount]="10" formControlName="description"></mm-limited-character-textarea>
+    <label>Language</label>
+    <input type="text" class="mt-5" formControlName="language" />
+    <div class="row row--no-margin mt-20 end-xs">
+      <mm-button [disabled]="addListForm.invalid" class="mm-button--medium">
+        <mm-icon name="check_mark"></mm-icon>
+        CREATE LIST
+      </mm-button>
+    </div>
   </section>
   <mm-spinner *ngIf="loading"></mm-spinner>
 </form>
-

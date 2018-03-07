@@ -1,0 +1,14 @@
+<article class="movie-list">
+  <header class="movie-list__header row row--no-margin start-xs middle-xs">
+    {{movieList.name}}
+  </header>
+  <section class="movie-list__content">
+    {{movieList.description}}
+  </section>
+  <footer class="movie-list__footer row row--no-margin center-xs middle-xs">
+    <mm-icon name="movie_reel" class="mr-10"></mm-icon>
+    <span class="mr-10"> {{movieList.itemCount}}</span>
+    <mm-icon name="vote" class="mr-10"></mm-icon>
+    <span class="mr-10"> {{movieList.favoriteCount}}</span>
+  </footer>
+</article>

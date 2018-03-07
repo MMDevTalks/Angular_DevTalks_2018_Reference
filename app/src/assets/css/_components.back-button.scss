@@ -1,0 +1,10 @@
+@import 'settings.colors';
+@import 'settings.fonts';
+
+.back-button{
+    svg{
+        fill: $mainColor;
+        width: 30px;
+        height: 30px;
+    }
+}

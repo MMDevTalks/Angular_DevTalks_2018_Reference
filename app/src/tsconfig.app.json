@@ -7,7 +7,12 @@
     "types": [],
     "paths": {
       "@movies/shared": ["./app/shared"],
-      "@movies/services": ["./app/core/services"]
+      "@movies/interfaces": ["./app/shared/interfaces"],
+      "@movies/enums": ["./app/shared/enums"],
+      "@movies/models": ["./app/shared/models"],
+      "@movies/animations": ["./app/shared/animations"],
+      "@movies/core/*": ["./app/core/*"],
+      "@movies/environment": ["./environments/environment"]
     }
   },
   "exclude": [

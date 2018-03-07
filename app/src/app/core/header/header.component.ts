@@ -1,26 +1,22 @@
-import { Component, OnInit, ViewEncapsulation, Input, ChangeDetectionStrategy, EventEmitter, Output } from '@angular/core';
-import { popIn } from 'app/shared/animations/pop-in.animation';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { popIn } from '@movies/animations';
 
 @Component({
   selector: 'mm-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [
-    popIn(1)
-  ]
+  animations: [popIn()],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent implements OnInit {
-  @Input() collectables: Array<any>;
   @Input() isCollecting: boolean;
-  @Output() collectionCompleted: EventEmitter<Array<any>> = new EventEmitter();
+  @Input() collectables: Array<any>;
+  @Output() collectablesSelectionComplete: EventEmitter<Array<any>> = new EventEmitter();
   constructor() { }
-
-  ngOnInit() {
-  }
-
   completeSelection() {
-    this.collectionCompleted.emit(this.collectables);
+    this.collectablesSelectionComplete.emit(this.collectables);
+  }
+  ngOnInit() {
   }
 
 }

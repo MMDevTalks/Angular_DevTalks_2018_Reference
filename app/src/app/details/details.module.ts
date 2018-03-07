@@ -1,16 +1,23 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { NgModule } from '@angular/core';
+import { SharedModule } from '@movies/shared';
+import { ColorExtractorDirective } from './../shared/directives/color-extractor.directive';
 import { DetailsRoutingModule } from './details-routing.module';
 import { DetailsComponent } from './details.component';
-import { SharedModule } from 'app/shared';
 
 @NgModule({
   imports: [
     CommonModule,
+    DetailsRoutingModule,
     SharedModule,
-    DetailsRoutingModule
+    // EffectsModule.forFeature([DetailsEffects])
   ],
-  declarations: [DetailsComponent]
+  declarations: [
+    DetailsComponent,
+    ColorExtractorDirective
+  ],
+  exports: [
+    ColorExtractorDirective
+  ]
 })
 export class DetailsModule { }

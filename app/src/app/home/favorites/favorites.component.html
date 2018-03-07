@@ -1,0 +1,5 @@
+<section class="center-xs row row--no-margin">
+    <mm-movie-grid class="col-xs-12 col-lg-10" [selectedMovie]="(homeState$|async)?.selectedMovie" [movies]="(homeState$|async)?.movieResults?.results" [isToggleable]="true" [isInToggleMode]="(homeState$|async)?.isCollectingMovies"
+      (movieCollected)="collectMovie($event)" (movieListToggled)="toggleMovieList($event)" (movieSelected)="selectMovie($event)" (movieDetailsShown)="showMovieDetails($event)">
+    </mm-movie-grid>
+  </section>

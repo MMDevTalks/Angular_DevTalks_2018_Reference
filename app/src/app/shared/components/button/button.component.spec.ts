@@ -1,5 +1,6 @@
+import { ChangeDetectionStrategy } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { By } from '@angular/platform-browser';
 import { ButtonComponent } from './button.component';
 
 describe('ButtonComponent', () => {
@@ -8,9 +9,12 @@ describe('ButtonComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ButtonComponent ]
+      declarations: [ButtonComponent]
     })
-    .compileComponents();
+      .overrideComponent(ButtonComponent, {
+        set: { changeDetection: ChangeDetectionStrategy.Default }
+      })
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -20,6 +24,13 @@ describe('ButtonComponent', () => {
   });
 
   it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should create a button in disabled state', () => {
+    component.disabled = true;
+    fixture.detectChanges();
+    expect(fixture.debugElement.query(By.css('.button')).properties.disabled).toBe(true);
     expect(component).toBeTruthy();
   });
 });

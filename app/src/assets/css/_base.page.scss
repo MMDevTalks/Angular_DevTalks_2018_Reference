@@ -1,15 +1,14 @@
-
 @font-face {
-    font-family: 'HelveticaNeue';
-    src: url('../fonts/HelveticaNeueLight.ttf'); /* IE9 Compat Modes */
-    src: url('../fonts/HelveticaNeueLight.ttf?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  }
-  html { 
-    font-size: 62.5%;
-    height: 100%;
- }
-  body{
-      font-size: 1.6rem;
-      font-family: HelveticaNeue;
-      height: 100%;
-  }
+  font-family: 'HelveticaNeue';
+  src: url('../fonts/HelveticaNeue.ttf') format('truetype'), url('../fonts/HelveticaNeue.eot') format('embedded-opentype'), url('../fonts/HelveticaNeue.woff') format('woff'), url('../fonts/HelveticaNeue.svg') format('svg');
+}
+
+html { 
+  font-size: 62.5%;
+  height: 100%;
+}
+body{
+  font-size: 1.6rem;
+  font-family: 'HelveticaNeue';
+  height: 100%;
+}

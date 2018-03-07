@@ -1,4 +1,5 @@
-import { Component, HostBinding, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter, Attribute } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, OnInit, Output } from '@angular/core';
+import { Movie } from '@movies/models';
 
 @Component({
   selector: 'mm-movie-poster',
@@ -7,22 +8,22 @@ import { Component, HostBinding, OnInit, ChangeDetectionStrategy, Input, Output,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MoviePosterComponent implements OnInit {
-  @Output() selectMovie: EventEmitter<any> = new EventEmitter();
-  @Output() movieDetailsShown: EventEmitter<any> = new EventEmitter();
-  @Input() movie: any;
+  @Output() selectMovie: EventEmitter<Movie> = new EventEmitter();
+  @Output() showMovieDetails: EventEmitter<any> = new EventEmitter();
+  @Input() movie: Movie;
+  @Input() isNotFlippable = false;
   @HostBinding('class.movie-poster--active') @Input() isSelected = false;
 
-  clickMoviePoster(event: Event, movie, doNotPropagate?: boolean) {
+  clickMoviePoster(event: Event, movie: Movie, doNotPropagate?: boolean) {
     if (doNotPropagate) {
       event.stopPropagation();
     }
     this.selectMovie.emit(movie);
   }
-
-  showMovieDetails(movie: any) {
-    this.movieDetailsShown.emit(movie);
+  clickMovieDetails($event, movie: Movie) {
+    $event.stopPropagation();
+    this.showMovieDetails.emit(movie);
   }
-
   constructor() { }
 
   ngOnInit() {

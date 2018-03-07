@@ -2,6 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
 
+## Server Side Rendering
+
+Run `npm run build:ssr` which will build both the browser application in `dist/browser` and the server application in `dist/browser`. 
+It will also copy the necessary files for the service worker to work in `dist/browser`
+Your server - `server.js` will be added to `dist/`
+
+Run `npm run serve:ssr to run your server on http://localhost:4000
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

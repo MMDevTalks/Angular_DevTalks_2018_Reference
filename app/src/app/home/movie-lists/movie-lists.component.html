@@ -1,0 +1,11 @@
+<section class="row row--no-margin pt-30">
+  <ng-container *ngIf="(movieLists$|async)?.results as movieLists; else loading;">
+    <mm-movie-list class="col-xs-3 mb-20" [routerLink]="['/home/lists', list.id]" [movieList]="list" *ngFor="let list of movieLists">
+    </mm-movie-list>
+    <span *ngIf="!movieLists?.length"> No movie lists found</span>
+  </ng-container>
+  <ng-template #loading>
+    <mm-spinner [class]="'big'"></mm-spinner>
+  </ng-template>
+
+</section>

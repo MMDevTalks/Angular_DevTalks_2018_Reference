@@ -1,0 +1,5 @@
+<div class="textarea__holder pos-relative mb-10 mt-5">
+  <div class="textarea-like" #textAreaLike contenteditable="true" (keyup)="change(textAreaLike.textContent)" (focus)="focus()" >{{value}}</div>
+  
+  <span class="char-counter" [class.char-counter--invalid]="controlDir.control?.errors?.maxCharacterCountError">{{textAreaLike.textContent?.length}}/{{mmValidateMaxCharacterCount}}</span>
+</div>

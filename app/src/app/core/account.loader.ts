@@ -1,4 +1,4 @@
-import { AuthService } from 'app/core/services';
+import { AuthService } from './auth.service';
 
 export function accountLoader(authService: AuthService) {
     return () => (authService.getAccountAsync()).toPromise().catch((error) => {

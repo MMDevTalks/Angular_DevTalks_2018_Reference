@@ -1,0 +1,14 @@
+:host{
+    width: 100%;
+}
+.movie-list-details{
+    &__heading{
+        height: 100px;
+    }
+}
+
+mm-movie-grid{
+    /deep/ section{
+        padding-top: 0px!important;
+    }
+}

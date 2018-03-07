@@ -1,0 +1,36 @@
+@import 'settings.colors';
+@import 'settings.fonts';
+:host{
+    display: block;
+}
+.search-item{
+    width: 100%;
+    height: 65px;
+    border-bottom: 1px solid #d9d9d9;
+    background-color: #fff;
+    overflow: hidden;
+        cursor: pointer;
+    &__photo{
+        max-width: 43px;
+        margin-right: 10px;
+    }
+    &__stats-holder{
+        transform: translateX(120%);
+    }
+    &:hover,
+    &--active{
+        border: 1px solid transparent;
+        position: relative;
+        transform: scale(1.02);
+        transition: 0.35s transform;
+        box-shadow: 0px 1px 5px 0px rgba(50, 50, 50, 0.55);
+        color: $mainColor;
+        font-weight: bold;
+    }
+
+    /deep/ svg{
+        fill: $mainColor;
+        width: 20px;
+        height: 20px;
+    }
+}

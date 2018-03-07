@@ -1,0 +1,10 @@
+<div class="search-item row row--no-margin between-xs middle-xs" [class.search-item--active]="isSelected">
+  <div class="nf-xs row row--no-margin middle-xs">
+    <img class="nf-xs search-item__photo" [src]="movie.posterPath" />
+    <span> {{movie.title}}</span>
+  </div>
+  <div class="nf-xs mr-20 search-item__stats-holder" [@slideRightAnimation]="isSelected">
+    <mm-icon name="vote" class="pl-5 pr-5"></mm-icon> {{movie.voteCount | number: '1.0-0'}}
+    <mm-icon name="popularity" class="pl-5 pr-5"></mm-icon> {{movie.popularity | number: '1.0-0'}}
+  </div>
+</div>

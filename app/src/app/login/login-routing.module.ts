@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from 'app/login/login.component';
+import { RouterModule, Routes } from '@angular/router';
+import { AnonymousGuard } from '@movies/core/anonymous.guard';
+import { LoginComponent } from './login.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: LoginComponent
-  }
-];
+    component: LoginComponent,
+    canActivate: [
+      AnonymousGuard
+    ]
+  }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

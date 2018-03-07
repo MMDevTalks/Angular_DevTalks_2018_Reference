@@ -1,9 +1,9 @@
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
 
-export function popIn(duration: number) {
+export function popIn() {
     return trigger('popInAnimation', [
-        transition('out=>in', [
-            animate(`${duration}s ease-in-out`, keyframes([
+        transition(':enter', [
+            animate('0.35s ease-in-out', keyframes([
                 style({ transform: 'scale(0)' }),
                 style({ transform: 'scale(0.3)' }),
                 style({ transform: 'scale(0.5)' }),

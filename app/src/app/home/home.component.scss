@@ -1,8 +1,12 @@
-
-mm-fab{
-    position: absolute;
-    bottom: 55px;
-    right: 100px;
+.app-container{
+    height: 100%;
+}
+mm-header{
+    flex: none;
+}
+main{
+    overflow: auto;
+    flex: 1;
 }
 
 

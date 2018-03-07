@@ -3,7 +3,10 @@
 @import 'settings.grid';
 @import 'generic.reset';
 @import 'objects.grid';
-@import 'base.input';
 @import 'base.page';
+@import 'base.input';
+@import 'components.overlay';
+@import 'components.page-heading';
+@import 'components.back-button';
 @import 'components.tint';
 @import 'trumps.helpers';

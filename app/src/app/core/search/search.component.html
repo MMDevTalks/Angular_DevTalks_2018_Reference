@@ -1,4 +1,14 @@
-<div class="search row">
-  <input type="text" mmAutoFocus class="col-xs-12 search__input"/>
-  <mm-icon name="search" class="search__icon"></mm-icon>
-</div>
+<form [formGroup]="searchForm" class="search row" (mmClickOutside)="hideResults()">
+    <input type="text" mmAutoFocus class="col-xs-12 search__input" #input (click)="showResults()" formControlName="search"/>
+    <mm-icon name="search" class="search__icon"></mm-icon>
+    <div [hidden]="!(searchState$|async)?.resultsShown">
+      <div class="search__results" [@staggerAnimation]="((searchState$|async)?.searching)">
+        <mm-search-item (click)="selectItem(i)" [isSelected]="i === (searchState$|async)?.selectedItemIndex" [movie]="movie" *ngFor="let movie of (searchState$|async)?.searchResults; let i = index;">
+        </mm-search-item>
+        <span class="search__no-results-item" *ngIf="!(searchState$|async)?.searchResults?.length">
+        No results found
+        </span>
+      </div>
+    </div>
+    <mm-spinner class="search__loader" *ngIf="(searchState$|async)?.searching"></mm-spinner>
+  </form>

@@ -3,16 +3,22 @@
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
-    "declaration": false,
     "baseUrl": "./src",
+    "declaration": false,
+    "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
     "target": "es5",
     "paths": {
       "@movies/shared": ["./app/shared"],
-      "@movies/services": ["./app/core/services"]
+      "@movies/interfaces": ["./app/shared/interfaces"],
+      "@movies/enums": ["./app/shared/enums"],
+      "@movies/models": ["./app/shared/models"],
+      "@movies/animations": ["./app/shared/animations"],
+      "@movies/core/*": ["./app/core/*"],
+      "@movies/environment": ["./environments/environment"],
+      "@movies/mock-library/*": ["./mock-library/*"]
     },
     "typeRoots": [
       "node_modules/@types"

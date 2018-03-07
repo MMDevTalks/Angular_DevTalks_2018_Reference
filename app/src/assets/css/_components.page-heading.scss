@@ -1,0 +1,6 @@
+@import 'settings.colors';
+@import 'settings.fonts';
+.page-heading{
+    font-size: $fontSizeHeading;
+    color: $mainColor;
+}

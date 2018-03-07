@@ -24,6 +24,6 @@ textarea{
 input[type=submit]{
     background-color: $mainColor;
     color: #fff;
-    font-size: 17px;
-    line-height: 17px;
+    font-size: $fontSizeMedium;
+    line-height: $fontSizeMedium;
 }

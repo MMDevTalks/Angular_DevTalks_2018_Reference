@@ -1,67 +1,34 @@
-import {
-  Component,
-  OnInit,
-  Inject,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef
-} from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ICreateList } from 'app/shared/interfaces/icreate-list';
-import {
-  trigger,
-  animate,
-  keyframes,
-  style,
-  transition
-} from '@angular/animations';
-import { popIn } from 'app/shared/animations/pop-in.animation';
-import { Observable } from 'rxjs/Observable';
+import { AppState } from '@movies/core/store/app.state';
+import { ICreateList } from '@movies/interfaces';
+import { Movie } from '@movies/models';
 import { Store } from '@ngrx/store';
-import * as fromHome from './home.reducer';
+import 'rxjs/add/operator/take';
+import { Observable } from 'rxjs/Observable';
 import * as HomeActions from './home.actions';
 
 @Component({
   selector: 'mm-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
-  animations: [popIn(0.5)],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
-  public homeState$: Observable<fromHome.HomeState>;
-  public selectedMovie: any;
-  public isCollecting = false;
-  public collectedMovies: Array<any> = [];
-  public isFormShown = false;
-  public loading = false;
-  constructor(
-    private _router: Router,
-    private _store: Store<fromHome.State>
-  ) {}
+export class HomeComponent {
 
-  selectMovie(movie) {
-    this._store.dispatch(new HomeActions.SelectMovie(movie));
-  }
-  showMovieDetails(movie) {
-    this._router.navigate([{ outlets: { sidebar: `details/${movie.id}` } }]);
-  }
-  showForm() {
-    this.isFormShown = true;
-  }
-  // createList(createListDTO: { list: ICreateList; movies: Array<any> }) {
-  //   this._movieService.createList(createListDTO).subscribe(_ => {
-  //     this.isFormShown = false;
-  //     this.isCollecting = false;
-  //     this.collectedMovies = [];
-  //   });
-  // }
-  ngOnInit() {
-    this.homeState$ = this._store.select('home');
-    this._store.dispatch(new HomeActions.GetMovies());
+  public isCollectingMovies$: Observable<boolean>;
+  public isMovieListFormShown$: Observable<boolean>;
+  public collectedMovies$: Observable<Array<Movie>>;
 
-
+  constructor(private _router: Router, private _store: Store<AppState>) {
+    const _homeState$ = this._store.select('home');
+    this.collectedMovies$ = _homeState$.map(homeState => homeState.collectedMovies);
+    this.isCollectingMovies$ = _homeState$.map(homeState => homeState.isCollectingMovies);
+    this.isMovieListFormShown$ = _homeState$.map(homeState => homeState.isMovieListFormShown);
   }
-  toggleCollecting() {
-    this.isCollecting = !this.isCollecting;
+  toggleCreateListForm() {
+    this._store.dispatch(new HomeActions.ToggleMovieListForm());
+  }
+  addMoviesToList(createListModel: ICreateList) {
+    this._store.dispatch(new HomeActions.CreateList(createListModel));
   }
 }

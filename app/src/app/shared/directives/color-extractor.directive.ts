@@ -1,30 +1,38 @@
-import { Directive, ElementRef, EventEmitter, HostListener, Output, ViewChild } from '@angular/core';
+import { Directive, ElementRef, EventEmitter, HostListener, Output } from '@angular/core';
 import Vibrant from 'node-vibrant';
+
 export interface Colors {
   DarkVibrant: string;
   Vibrant: string;
 }
+
 @Directive({
   selector: '[mmColorExtractor]'
 })
 export class ColorExtractorDirective {
 
-  @Output() colorsExtracted: EventEmitter<Colors> = new EventEmitter();
-
+  @Output() extractColors: EventEmitter<Colors> = new EventEmitter();
   @HostListener('load') imageLoadSuccess() {
-    this._getColors(this._elementRef.nativeElement).then(palette => {
-      this.colorsExtracted.emit(palette);
-    });
+    this._getColors(this._elementRef.nativeElement)
+      .then((colors: Colors) => {
+        this.extractColors.emit(colors);
+      });
   }
-
-
-  constructor(private _elementRef: ElementRef) { }
+  @HostListener('error') imageLoadFailed(error) {
+  }
 
   private _getColors(img: HTMLImageElement) {
     const vibrant = new Vibrant(img);
-    return vibrant.getPalette().then(palette => ({
-      DarkVibrant: palette.DarkVibrant.getHex(),
-      Vibrant: palette.Vibrant.getHex(),
-    }));
+    return vibrant.getPalette()
+      .then(palette => {
+        return {
+          DarkVibrant: palette.DarkVibrant.getHex(),
+          Vibrant: palette.Vibrant.getHex()
+        };
+      });
+
   }
+  constructor(private _elementRef: ElementRef) { }
+
+
 }

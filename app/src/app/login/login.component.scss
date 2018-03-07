@@ -9,8 +9,8 @@ main{
 }
 
 mm-button{
-     /deep/ .button{
-        font-size: 16px;
+    /deep/ .button{
+        font-size: $fontSizeMedium;
         width: 175px;
         height: 60px;
         background: #fff!important;

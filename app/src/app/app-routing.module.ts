@@ -1,20 +1,15 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { AuthGuard } from 'app/core/guards/auth.guard';
-import { AnonymousGuard } from 'app/core/guards/anonymous.guard';
-import { PreloadAllModules } from '@angular/router';
-import { ProxyRouteComponent } from 'app/proxy-route/proxy-route.component';
+import {PreloadAllModules, RouterModule,  Routes} from '@angular/router';
+import { ProxyRouteComponent } from './core/proxy-route/proxy-route.component';
 
 const routes: Routes = [
     {
         path: 'login',
         loadChildren: './login/login.module#LoginModule',
-        canActivate: [AnonymousGuard]
     },
     {
         path: 'home',
         loadChildren: './home/home.module#HomeModule',
-        canActivate: [AuthGuard]
     },
     {
         path: 'details',
@@ -29,8 +24,8 @@ const routes: Routes = [
     },
     {
         path: '',
-        redirectTo: '/home',
-        pathMatch: 'full'
+        pathMatch: 'full',
+        redirectTo: '/home/now-playing'
     }
 ];
 
